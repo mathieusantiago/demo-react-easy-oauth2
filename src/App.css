@@ -1,4 +1,15 @@
 .formContainer{
     border-radius: 8px;
     box-shadow: 2px 4px 8px #6b728040;
+    background-color: #ffffff;
+    padding: 10px;
+    padding-top: 10px;
+}
+body{
+    background-color: #34698c;
+}
+
+.imageBrand{
+    width: 10%;
+    height: 10%;
 }

@@ -1,16 +1,16 @@
 import { FormConnect } from "react-easy-oauth2";
-import { Col, Container, Form, Row } from "react-bootstrap";
+import { Col, Container, Form, Image, Row } from "react-bootstrap";
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-
-
+import Brandlogo from "./assets/react-easy-oauth2.png";
 import "./App.css";
+
 function App() {
   const [bgColor, setBgColor] = useState("white");
   const [textColor, setTextColor] = useState("black");
-  const [h1Color, setH1Color] = useState("blue");
-  const [btnBgColor, setBtnBgColor] = useState("gray");
-  const [linkColor, setLinkColor] = useState("green");
+  const [h1Color, setH1Color] = useState("#34698c");
+  const [btnBgColor, setBtnBgColor] = useState("#34698c");
+  const [linkColor, setLinkColor] = useState("#34698c");
 
   const styles = {
       bgComponent: {
@@ -91,6 +91,7 @@ function App() {
   return (
     <div>
       <Container>
+        <Image src={Brandlogo} className="imageBrand" fluid={true} />
         <Row className="mt-5">
           <Col>
             <FormConnectComponent />
@@ -189,7 +190,7 @@ function App() {
                 />
               </Form.Group>
             </Row>
-            <Row className="mb-5">
+            <Row className="mb-3">
               <Form.Group controlId="validationCustom02">
                 <Form.Label>Link color:</Form.Label>
                 <Form.Control
