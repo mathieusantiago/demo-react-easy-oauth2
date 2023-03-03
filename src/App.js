@@ -1,15 +1,45 @@
 import { FormConnect } from "react-easy-oauth2";
+import { Col, Container, Form, Row } from "react-bootstrap";
+import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import {  Col, Container, Form, Row } from "react-bootstrap";
-import {  useState } from "react";
 
+
+import "./App.css";
 function App() {
+  const [bgColor, setBgColor] = useState("white");
+  const [textColor, setTextColor] = useState("black");
+  const [h1Color, setH1Color] = useState("blue");
+  const [btnBgColor, setBtnBgColor] = useState("gray");
+  const [linkColor, setLinkColor] = useState("green");
+
+  const styles = {
+      bgComponent: {
+        backgroundColor: bgColor,
+      },
+      textStyle: {
+        color: textColor,
+      },
+      h1Style: {
+        color: h1Color,
+      },
+      btnStyle: {
+        backgroundColor: btnBgColor,
+      },
+      linkStyle: {
+        color: linkColor,
+      },
+    };
+
   const catchPayload = (payload) => {
     console.log("catchPayload", payload);
   };
-  const [signUp, setSignUp] = useState("signUp");
+  const [signUp, setSignUp] = useState("signIn");
   const [lang, setLang] = useState("En");
   const [provider, setProvider] = useState([]);
+  const [logo, setLogo] = useState(
+    "https://cdn-icons-png.flaticon.com/512/3387/3387987.png"
+  );
+
   const [field, setField] = useState([
     "fname",
     "lname",
@@ -21,54 +51,53 @@ function App() {
     "city",
     "zip",
   ]);
-  const split = (string) => {
-     return string.split(",");
+
+  if (field[0] === "") {
+    setField([
+      "fname",
+      "lname",
+      "email",
+      "passwd",
+      "add1",
+      "add2",
+      "phone",
+      "city",
+      "zip",
+    ]);
   }
+
+  const split = (string) => {
+    return string.split(",");
+  };
+
   const FormConnectComponent = () => {
+    console.log("provider", styles);
     return (
       <FormConnect
-        logo={"https://cdn-icons-png.flaticon.com/512/3387/3387987.png"}
         url={"https://wpxvwfcdmgcsvczglefh.supabase.co"}
         apiKey={
           "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndweHZ3ZmNkbWdjc3ZjemdsZWZoIiwicm9sZSI6ImFub24iLCJpYXQiOjE2NzcyODQ5NTIsImV4cCI6MTk5Mjg2MDk1Mn0.n84d9xUJmuxdigF8aFstFW4DRVw1dBLDx4Lb4JorMts"
         }
         catchPayload={catchPayload}
+        logo={logo}
         useDefault={signUp}
         field={field}
-        provider={
-          provider
-        }
-        theme={{
-          bgComponent: {
-            backgroundColor: "#ffffff",
-          },
-          textStyle: {
-            color: "#6b7280",
-          },
-          h1Style: {
-            color: "red",
-          },
-          btnStyle: {
-            backgroundColor: "red",
-          },
-          linkStyle: {
-            color: "red",
-          },
-        }}
+        provider={provider}
         lang={lang}
+        theme={styles}
       />
     );
   };
   return (
     <div>
       <Container>
-        <Row>
+        <Row className="mt-5">
           <Col>
             <FormConnectComponent />
           </Col>
-          <Col>
-            <Row className="mb-3">
-              <Form.Group as={Col} md="4" controlId="validationCustom01">
+          <Col className="formContainer">
+            <Row>
+              <Form.Group as={Col} md="6" controlId="validationCustom01">
                 <Form.Label>useDefault</Form.Label>
                 <Form.Control
                   required
@@ -77,7 +106,7 @@ function App() {
                   onChange={(e) => setSignUp(e.target.value)}
                 />
               </Form.Group>
-              <Form.Group as={Col} md="4" controlId="validationCustom02">
+              <Form.Group as={Col} md="6" controlId="validationCustom02">
                 <Form.Label>Lang</Form.Label>
                 <Form.Control
                   required
@@ -85,10 +114,24 @@ function App() {
                   placeholder="Default En"
                   onChange={(e) => setLang(e.target.value)}
                 />
-                <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
               </Form.Group>
-              <Form.Group as={Col} md="4" controlId="validationCustomUsername">
-                <Form.Label>Provider</Form.Label>
+            </Row>
+            <Row className="mb-3">
+              <Form.Group controlId="validationCustomUsername">
+                <Form.Label>Source logo</Form.Label>
+                <Form.Control
+                  required
+                  type="text"
+                  placeholder="https://cdn-icons-png.flaticon.com/512/3387/3387987.png"
+                  DefaultValue="https://cdn-icons-png.flaticon.com/512/3387/3387987.png"
+                  onChange={(e) => setLogo(e.target.value)}
+                />
+              </Form.Group>
+            </Row>
+            <Row className="mb-3">
+              <Form.Group controlId="validationCustomUsername">
+                <Form.Label>Provider liste</Form.Label>
+                <p>please space provider with ","</p>
                 <Form.Control
                   required
                   type="text"
@@ -98,8 +141,9 @@ function App() {
               </Form.Group>
             </Row>
             <Row className="mb-3">
-              <Form.Group as={Col} md="6" controlId="validationCustom03">
-                <Form.Label>Filed</Form.Label>
+              <Form.Group controlId="validationCustomUsername">
+                <Form.Label>Field liste</Form.Label>
+                <p>please space provider with ","</p>
                 <Form.Control
                   required
                   type="text"
@@ -107,19 +151,52 @@ function App() {
                   onChange={(e) => setField(split(e.target.value))}
                 />
               </Form.Group>
-              <Form.Group as={Col} md="3" controlId="validationCustom04">
-                <Form.Label>State</Form.Label>
-                <Form.Control type="text" placeholder="State" required />
-                <Form.Control.Feedback type="invalid">
-                  Please provide a valid state.
-                </Form.Control.Feedback>
+            </Row>
+
+            <Row>
+              <Form.Group as={Col} md="6" controlId="validationCustom01">
+                <Form.Label>Background color:</Form.Label>
+                <Form.Control
+                  type="text"
+                  defaultValue={bgColor}
+                  onChange={(e) => setBgColor(e.target.value)}
+                />
               </Form.Group>
-              <Form.Group as={Col} md="3" controlId="validationCustom05">
-                <Form.Label>Zip</Form.Label>
-                <Form.Control type="text" placeholder="Zip" required />
-                <Form.Control.Feedback type="invalid">
-                  Please provide a valid zip.
-                </Form.Control.Feedback>
+              <Form.Group as={Col} md="6" controlId="validationCustom02">
+                <Form.Label>Text color:</Form.Label>
+                <Form.Control
+                  type="text"
+                  defaultValue={textColor}
+                  onChange={(e) => setTextColor(e.target.value)}
+                />
+              </Form.Group>
+            </Row>
+            <Row>
+              <Form.Group as={Col} md="6" controlId="validationCustom01">
+                <Form.Label>H1 color:</Form.Label>
+                <Form.Control
+                  type="text"
+                  defaultValue={h1Color}
+                  onChange={(e) => setH1Color(e.target.value)}
+                />
+              </Form.Group>
+              <Form.Group as={Col} md="6" controlId="validationCustom02">
+                <Form.Label>Button background color:</Form.Label>
+                <Form.Control
+                  type="text"
+                  defaultValue={btnBgColor}
+                  onChange={(e) => setBtnBgColor(e.target.value)}
+                />
+              </Form.Group>
+            </Row>
+            <Row className="mb-5">
+              <Form.Group controlId="validationCustom02">
+                <Form.Label>Link color:</Form.Label>
+                <Form.Control
+                  type="text"
+                  defaultValue={linkColor}
+                  onChange={(e) => setLinkColor(e.target.value)}
+                />
               </Form.Group>
             </Row>
           </Col>

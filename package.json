@@ -7,11 +7,13 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "bootstrap": "^5.2.3",
+    "prismjs": "^1.29.0",
     "react": "^18.2.0",
     "react-bootstrap": "^2.7.2",
     "react-dom": "^18.2.0",
     "react-easy-oauth2": "^2.4.6",
     "react-scripts": "5.0.1",
+    "react-simple-code-editor": "^0.13.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
