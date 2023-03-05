@@ -1,15 +1,23 @@
 .formContainer{
+    position: relative;
     border-radius: 8px;
     box-shadow: 2px 4px 8px #6b728040;
     background-color: #ffffff;
     padding: 10px;
     padding-top: 10px;
+    z-index: 0;
 }
 body{
-    background-color: #34698c;
+    background-color: #34698c !important;
 }
+canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
 
 .imageBrand{
-    width: 10%;
-    height: 10%;
+    width: 100%;
+    height: 100%;
 }
