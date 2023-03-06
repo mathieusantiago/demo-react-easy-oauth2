@@ -67,7 +67,7 @@ const Scene = () => {
           if (Math.random() < 0.8) {
             return Bodies.rectangle(
               Math.random() * window.innerWidth,
-              Math.random() * window.innerHeight,
+              Math.random() * -600,
               80,
               80,
               {
@@ -75,8 +75,8 @@ const Scene = () => {
                 render: {
                   sprite: {
                     texture: sample(images),
-                    xScale: 0.2,
-                    yScale: 0.2,
+                    xScale: 0.15,
+                    yScale: 0.15,
                   },
                 },
               }
@@ -84,7 +84,7 @@ const Scene = () => {
           } else {
             return Bodies.rectangle(
               Math.random() * window.innerWidth,
-              Math.random() * window.innerHeight,
+              Math.random() * -600,
               80,
               80,
               {
@@ -92,8 +92,8 @@ const Scene = () => {
                 render: {
                   sprite: {
                     texture: sample(images),
-                    xScale: 0.2,
-                    yScale: 0.2,
+                    xScale: 0.15,
+                    yScale: 0.15,
                   },
                 },
               }
@@ -107,7 +107,7 @@ const Scene = () => {
     });
 
     World.add(engine.world, [
-      Bodies.rectangle(0, 940, render.options.width * 2, 20, {
+      Bodies.rectangle(0, 930, render.options.width * 2, 20, {
         isStatic: true,
         render: { fillStyle: "#232323" },
       }),
@@ -132,7 +132,7 @@ const Scene = () => {
         engine.world,
         Bodies.rectangle(
           Math.random() * window.innerWidth,
-          Math.random() * window.innerHeight,
+          Math.random() * -600,
           80,
           80,
           {
