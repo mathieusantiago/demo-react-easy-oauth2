@@ -5,16 +5,19 @@
     background-color: #ffffff;
     padding: 10px;
     padding-top: 10px;
-    z-index: 0;
 }
+.formApp{
+    position: relative;
+}
+
 body{
     background-color: #34698c !important;
 }
+
 canvas {
     position: fixed;
     top: 0;
     left: 0;
-    z-index: -1;
   }
 
 .imageBrand{

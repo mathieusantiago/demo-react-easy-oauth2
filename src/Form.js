@@ -89,17 +89,17 @@ function App() {
   };
   return (
     <div>
-      <Container>
+      <Container >
         <Row className="align-items-center">
-          <Col md={1}>
+          <Col md={1} className="formApp">
             <Image src={Brandlogo} className="imageBrand" fluid={true} />
           </Col>
-          <Col md={11} className='text-light'>
+          <Col md={11} className='text-light formApp'>
             <h1>React Easy oAuth 2</h1>
           </Col>
         </Row>
         <Row className="mt-5">
-          <Col>
+          <Col className="formApp">
             <FormConnectComponent />
           </Col>
           <Col className="formContainer">
