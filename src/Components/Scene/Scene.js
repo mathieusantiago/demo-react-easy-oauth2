@@ -19,6 +19,7 @@ import bitbucket from "../../assets/bitbucket-icon.svg";
 import notion from "../../assets/notion-icon.svg";
 import workos from "../../assets/workos-icon.svg";
 import keycloak from "../../assets/keycloak-icon.svg";
+import duck from "../../assets/duck.png";
 
 const Scene = () => {
   const sceneRef = useRef(null);
@@ -59,6 +60,7 @@ const Scene = () => {
       notion,
       workos,
       keycloak,
+      duck
     ];
 
     const stack = Composites.stack(50, 20, 10, 5, 5, 5, function (x, y) {
@@ -92,8 +94,8 @@ const Scene = () => {
                 render: {
                   sprite: {
                     texture: sample(images),
-                    xScale: 0.15,
-                    yScale: 0.15,
+                    xScale: 0.10,
+                    yScale: 0.10,
                   },
                 },
               }
@@ -140,8 +142,8 @@ const Scene = () => {
             render: {
               sprite: {
                 texture: sample(images),
-                xScale: 0.1,
-                yScale: 0.1,
+                xScale: 0.15,
+                yScale: 0.15,
               },
             },
           }

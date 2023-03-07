@@ -3,7 +3,8 @@ import { Col, Container, Form, Image, Row } from "react-bootstrap";
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Brandlogo from "../../assets/react-easy-oauth2.png";
-
+import NavBar from "../NavBar/NavBar";
+import "./Style.css";
 function App() {
   const [bgColor, setBgColor] = useState("white");
   const [textColor, setTextColor] = useState("black");
@@ -88,12 +89,15 @@ function App() {
   };
   return (
     <div>
-      <Container >
+      <Container>
+        <div className="nav" style={{ top: "3%", left: '50%'}}>
+          <NavBar />
+        </div>
         <Row className="align-items-center">
           <Col md={1} className="formApp">
             <Image src={Brandlogo} className="imageBrand" fluid={true} />
           </Col>
-          <Col md={11} className='text-light formApp'>
+          <Col md={11} className="text-light formApp">
             <h1>React Easy oAuth 2</h1>
           </Col>
         </Row>

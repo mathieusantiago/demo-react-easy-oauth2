@@ -1,0 +1,7 @@
+.nav{
+    position: absolute;
+    transform: translate(-50%, -50%);
+    width: 373px;
+    height: 0px;
+    z-index: 100;
+}

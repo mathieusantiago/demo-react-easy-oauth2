@@ -1,0 +1,17 @@
+.btn-Duck{
+    background-color: #d9b72e !important;
+    border-color: #d9b72e !important;
+}
+
+.btn-Duck:hover{
+    background-color: #bd9b11 !important;
+    border-color: #a17f00;
+}
+
+.btn-Duck:active{
+    background-color: #a17f00 !important;
+}
+
+.btn-Duck:focus-visible{
+    background-color: #d9b72e !important;
+}

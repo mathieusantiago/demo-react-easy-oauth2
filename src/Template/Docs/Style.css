@@ -1,4 +1,13 @@
 .docs {
+    margin-top: 50px !important;
     overflow: auto; /* affiche des barres de défilement si le contenu dépasse le conteneur */
     word-wrap: break-word; /* force le texte à se répartir sur plusieurs lignes si nécessaire */
-  }
+}
+
+.nav{
+    position: absolute;
+    transform: translate(-50%, -50%);
+    width: 373px;
+    height: 0px;
+    z-index: 100;
+}

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Markdown from "markdown-to-jsx";
 import { Container } from "react-bootstrap";
 import "./Style.css";
+import NavBar from "../../Components/NavBar/NavBar";
 function Docs() {
   const [markdown, setMarkdown] = useState("");
 
@@ -21,9 +22,14 @@ function Docs() {
 
   return (
     <div>
-      <Container className="bg-light docs">
-        <Markdown>{markdown}</Markdown>
-      </Container>
+      <>
+        <div className="nav" style={{ top: "3%", left: "50%" }}>
+          <NavBar />
+        </div>
+        <Container className="bg-light docs mt-5 mb-5">
+          <Markdown>{markdown}</Markdown>
+        </Container>
+      </>
     </div>
   );
 }
