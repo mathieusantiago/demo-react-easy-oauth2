@@ -11,8 +11,17 @@
 }
 
 body{
-    background-color: #34698c !important;
+    background-color: #14151f !important;
 }
+
+/* .Duck3d canvas{
+    position: relative;
+    left: 0;
+    top: 0;
+    width: 100vw !important;
+    height: 100vh !important;
+    background: #ffffff00 !important;
+} */
 
 canvas {
     position: fixed;

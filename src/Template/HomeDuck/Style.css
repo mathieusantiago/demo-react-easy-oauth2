@@ -1,0 +1,8 @@
+.Duck3d canvas{
+    position: relative;
+    left: 0;
+    top: 0;
+    width: 100vw !important;
+    height: 100vh !important;
+    background: #ffffff00 !important;
+}

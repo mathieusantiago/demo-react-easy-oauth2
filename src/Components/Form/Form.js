@@ -2,8 +2,7 @@ import { FormConnect } from "react-easy-oauth2";
 import { Col, Container, Form, Image, Row } from "react-bootstrap";
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Brandlogo from "./assets/react-easy-oauth2.png";
-import "./App.css";
+import Brandlogo from "../../assets/react-easy-oauth2.png";
 
 function App() {
   const [bgColor, setBgColor] = useState("white");

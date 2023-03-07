@@ -1,0 +1,4 @@
+.docs {
+    overflow: auto; /* affiche des barres de défilement si le contenu dépasse le conteneur */
+    word-wrap: break-word; /* force le texte à se répartir sur plusieurs lignes si nécessaire */
+  }
